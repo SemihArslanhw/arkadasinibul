@@ -1,0 +1,109 @@
+.conv-side{
+    width:80%;
+    position: relative;
+}
+.conv-top{
+    width:100%;
+    height: 15%;
+    background-color: black;
+}
+.conv-body{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: beige;
+    width:100%;
+    height: 70%;
+    background-image: url("https://i.redd.it/avcsz3r8sty51.png");
+}
+
+.conv-body-css{
+    width: 100%;
+}
+
+.submit-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #161b22;
+    color: beige;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form-button{
+    width: fit-content;
+    background-color: #161b22;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form-button:hover{
+    background-color: #38423e;
+}
+
+.to-bottom{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: black;
+    width: 60px;
+    height: 60px;
+    right: 20px;
+    top: 70%;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.to-bottom>p{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin-left: 30px;
+    margin-bottom: 45px;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(12, 245, 12);
+}
+
+.to-bottom>img{
+    width: 50px;
+    height: 50px;
+}
+
+.form-input{
+ width: 100%;
+ max-width: 70%;
+ word-wrap: break-word;
+ word-break: break-all;
+ padding: 20px;
+ border-radius: 10px;
+ margin: 10px;
+ color: white;
+ background-color: #38423e;
+ border: none;
+ outline: none;
+}
+
+
+
+.conv-bottom{
+    width:100%;
+    height: 15%;
+}

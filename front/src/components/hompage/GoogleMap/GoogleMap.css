@@ -1,0 +1,25 @@
+.google-map{
+    position: relative;
+    overflow: hidden;
+    width: 70%;
+    height: 100%;
+    
+    margin-top: 20px;
+    
+}
+.distance{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    left: 0px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+   
+}

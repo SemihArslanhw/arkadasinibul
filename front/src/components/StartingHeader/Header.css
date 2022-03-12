@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    height: 100px;
+    width: 100%;
+    background-color: #161b22;
+    position: sticky;
+    top: 0;
+}
+.headerRigth{
+    display: flex;
+    gap: 40px;
+    margin-right: 50px;
+}
+
+.headerLeft{
+    display: flex;
+    margin-left: 50px;
+}

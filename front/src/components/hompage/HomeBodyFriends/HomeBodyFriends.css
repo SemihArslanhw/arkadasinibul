@@ -1,0 +1,10 @@
+.home-friends{
+    position: relative;
+    overflow: hidden;
+    width: 30%;
+    height: 100%;
+    color: white;
+    margin-top: 20px;
+    background-color: rgb(207, 190, 190);
+    height: 600px;
+}
