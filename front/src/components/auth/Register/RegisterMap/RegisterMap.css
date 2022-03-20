@@ -1,0 +1,57 @@
+.register-map{
+    z-index: 50;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 90px;
+}
+
+.search-location{
+    width: 100%;
+    position: absolute;
+    z-index: 9;
+    top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input{
+    padding: 10px;
+    width: 100%;
+}
+
+.register-map-comp{
+    width: 700px;
+    height: 80%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.save-button{
+    width: 80%;
+    height: 40px;
+    background-color: #1a1b1b;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.save-button:hover{
+    background-color: #363a41;
+}
+
+.google-map-comp{
+    height: 80%;
+    width: 80%;
+}

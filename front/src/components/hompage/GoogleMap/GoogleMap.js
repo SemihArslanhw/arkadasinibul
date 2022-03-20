@@ -10,6 +10,7 @@ function GoogleMaps() {
   const [currentPosition , setCurrentPosition] = React.useState({lat: 0, lng: 0});
   const [markers , setMarkers] = React.useState([]);
   const [selectedPin , setSelectedPin] = React.useState();
+  const [map, setMap] = React.useState(null)
   const [directions , setDirections] = React.useState({});
   const [destinationAddress , setDestinationAddress] = React.useState();
   const [time , setTime] = React.useState(null);
@@ -60,7 +61,7 @@ function GoogleMaps() {
     mapRef.current.setZoom(14);
   }, []);
 
-  const [map, setMap] = React.useState(null)
+  
 
   const setDestination = (destination) => {
     console.log(destination)

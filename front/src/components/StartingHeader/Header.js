@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Header.css"
 import {  useNavigate }  from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 function Header() {
 
   const navigate = useNavigate();
-  
+  const {user} = useContext(AuthContext);
+
   return (
     <div className='header'>
         <div className='headerLeft'>
            <h1 style={{cursor:"pointer"}} onClick={()=>navigate("/")}>Logo</h1>
         </div>
         <div className='headerRigth'>
-          <p>Bildirimler</p>
+          <p>Profilim</p>
           <p style={{cursor:"pointer"}} onClick={()=>navigate("/sohbet")}>Sohbet</p>
-          <p>Hesap Aç</p>
+          {user ? <p>{user.username}</p> : <p>Hesap Aç</p>}
           </div>
         </div>
   )

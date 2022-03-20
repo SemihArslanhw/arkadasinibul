@@ -1,0 +1,67 @@
+.login-left-chat{
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 10px ;
+    border-bottom-left-radius: 10px ;
+    color: white;
+}
+
+.login-left-chat-header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    float: right;
+    border-top-left-radius: 10px ;
+    background-color: #202c33;    
+}
+
+.header-situation{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+.header-situation>p{
+    height: 5px !important;
+}
+
+
+.login-left-chat-header>img{
+    margin-left: 10px;
+    width:50px;
+    border-radius: 100%;
+}
+
+.login-left-chat-body{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: beige;
+    width:100%;
+    background-image: url("https://i.pinimg.com/originals/55/a4/4e/55a44e59618507debb99d95fc16b659a.jpg");
+    
+}
+::-webkit-scrollbar{
+    width: 10px;
+    
+    height: 10px;
+    
+    
+    background:transparent;
+}::-webkit-scrollbar-thumb{
+    background-color: #202c33;
+    height: 20%;
+}
+.login-left-chat-bottom{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: flex-end;
+    border-bottom-left-radius: 10px ;
+    background-color: black;
+}

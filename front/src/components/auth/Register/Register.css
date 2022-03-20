@@ -1,0 +1,117 @@
+.register{
+    width: 100%;
+    height: 100%;
+    background-color: #0d1117;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register-mid{
+    width: 1000px;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.fileInput{
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    background-color: green;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-size: larger;
+
+    margin-bottom: 200px;
+    margin-left: 100px;
+    justify-content: center;
+}
+.register-mid-inputs{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.register-adress{
+    width: 100%;
+    gap:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 40%;
+}
+.register-finish{
+    
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.finish-button{
+    width: 180px;
+    height: 40px;
+    background-color: #1a1b1b;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.register-adress-p{
+    width: 180px;
+    height: 40px;
+    background-color: #1a1b1b;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.register-adress-p:hover{
+    background-color: #363a41;
+}
+
+.register-inputs{
+    height: 40px;
+    padding: 5px;
+}
+.register-input-css{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.register-input-style{
+    display: flex;
+    gap: 10px;
+}
+.address-p{
+    height: 40px;
+    color: black;
+    border: 1px solid black;
+    word-wrap: break-word;
+    padding: 5px;
+}
+
+.register-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    border: 2px solid gray;
+}

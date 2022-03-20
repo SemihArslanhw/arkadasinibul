@@ -49,9 +49,6 @@ function ConversationChatComponent() {
             socket.current.disconnect()
         }
         },[])
-
-        useEffect(()=>{
-        },[window.sc])
       
         const handleMessageSend = (e)=>{
             e.preventDefault();
@@ -61,6 +58,7 @@ function ConversationChatComponent() {
               ,name : "ali",
               date: new Date().toDateString()})
             }
+            mesajInput.current.value = "";
             chatRef.current.lastElementChild.scrollIntoView();
          }
 
@@ -74,7 +72,13 @@ function ConversationChatComponent() {
     <div className='conv-side'> 
        
     <div className='conv-top'>
-      
+     <div className='conv-top-user'>
+      <img src='ismail.jpg'></img>
+     </div>
+      <div className='conv-top-inf'>
+        <h3>İsmail Bot</h3>
+        <p>Yazıyor...</p>
+      </div>
       </div>
     <div ref={chatRef} className='conv-body'>
      {toBottom && <div onClick={()=>{toBottomm()}} className='to-bottom'><img src='tobottom.png'></img>{newMessageCount !== 0 && <p>{newMessageCount}</p>}</div>}

@@ -4,5 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: #111b21;
+    border-right:1px solid #2a3238;
 }
