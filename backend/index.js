@@ -9,6 +9,8 @@ const messageRoute = require("./routes/messages");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 
+
+
 const app = express();
 app.use(cors())
 dotenv.config();
@@ -19,6 +21,23 @@ mongoose.connect(
       console.log("Connected to MongoDB");
     }
   );
+
+  app.use("/images",express.static(path.join(__dirname,"/images")))
+
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "images")
+    }, filename: (req, file, cb) => {
+        cb(null, req.body.name);
+    },
+})
+
+const upload = multer({storage: storage});
+app.post("/api/upload",upload.single("file"),(req,res)=>{
+    res.status(200).json("File has been uploaded!");
+})
+
+
 app.use(express.json());
 app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);

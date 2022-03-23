@@ -14,6 +14,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from './pages/Profile';
 
 function App() {
    
@@ -26,9 +27,12 @@ function App() {
         <Header/>
         <Routes>
          <Route path="/" element={user ? <Homepage/> : <Navigate to="/giris"/>} /> 
-         <Route path="/sohbet" element={ <ConversationPage/>}/> 
+         <Route path="/sohbet" element={user ? <ConversationPage/> :  <Navigate to="/giris"/>}/> 
+         <Route path="/profil" element={user ? <Profile/> :  <Navigate to="/giris"/>}/> 
+         <Route path="/profil/:profileId" element={user ? <Profile/> :  <Navigate to="/giris"/>}/> 
+         <Route path="/sohbet/:convId" element={user ? <ConversationPage/> :  <Navigate to="/giris"/>}/> 
          <Route path="/giris" element={user ?<Navigate to="/"/> : <LoginPage/>}/>
-         <Route path="/kayitol" element={<RegisterPage/>}/>
+         <Route path="/kayitol" element={user ? <Homepage/> : <RegisterPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

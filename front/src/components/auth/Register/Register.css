@@ -29,8 +29,8 @@
     align-items: center;
     font-size: larger;
 
-    margin-bottom: 200px;
-    margin-left: 100px;
+    margin-bottom: 100px;
+    margin-left: 200px;
     justify-content: center;
 }
 .register-mid-inputs{
@@ -60,13 +60,18 @@
 .finish-button{
     width: 180px;
     height: 40px;
-    background-color: #1a1b1b;
+    background-color: #19b44d;
     border-radius: 5px;
     color: white;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 5px;
+    outline: none;
+    border: none;
+}
+.finish-button:hover{
+    background-color: #00fa68;
 }
 
 .register-adress-p{
@@ -96,14 +101,14 @@
 }
 .register-input-style{
     display: flex;
+    justify-content: space-between;
     gap: 10px;
 }
 .address-p{
-    height: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    word-break: break-all;
+    width: 80%;
     color: black;
-    border: 1px solid black;
-    word-wrap: break-word;
-    padding: 5px;
 }
 
 .register-img{

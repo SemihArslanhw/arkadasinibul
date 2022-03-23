@@ -26,6 +26,18 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+//findUserByCity
+router.get("/city/:city", async (req, res) => {
+  try {
+    const user = await User.find({ city: req.params.city }).limit(30);
+    res.status(200).json(user);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
+
+
 //delete user
 router.delete("/:id", async (req, res) => {
   if (req.body.userId === req.params.id || req.body.isAdmin) {

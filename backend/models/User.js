@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
       min: 3,
       max: 20,
-      unique: true,
+     
     },
     email: {
       type: String,
@@ -36,22 +36,33 @@ const UserSchema = new mongoose.Schema(
     },
     city: {
       type: String,
-      max: 50,
+      required: true,
     },
-    from: {
+    district: {
       type: String,
       max: 50,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
     },
     lat:{
+      required: true,
       type: Number,
     },
     lng:{
+      required: true,
       type: Number,
     },
     profilePicture: {
         type: String,
         default: "",
       },
+    isProfileSelfAdded: {
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true }
 );

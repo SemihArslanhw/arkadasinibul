@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Login.css"
-
+import LoginLeftChat from "./LoginComponent/LoginLeftChat";
 import { CircularProgress } from "@material-ui/core";
 import { loginCall } from "../../../context/AuthApiCall";
-import LoginLeftChat from "./LoginComponent/LoginLeftChat";
+
 import { AuthContext } from "../../../context/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
@@ -42,7 +42,7 @@ function Login() {
          <button type='submit'>Login</button>
        </form>
         }
-       <p style={{color:"white"}}>Mevcut değil ise <span onClick={()=>navigate("/kayitol")} style={{color:"red",cursor:"pointer",fontFamily:"sans-serif"}}>hesap aç</span></p>
+       <p style={{color:"black"}}>Mevcut değil ise <span onClick={()=>navigate("/kayitol")} style={{color:"red",cursor:"pointer",fontFamily:"sans-serif"}}>hesap aç</span></p>
       </div>
       </div>
     </div>

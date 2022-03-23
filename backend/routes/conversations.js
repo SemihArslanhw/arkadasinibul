@@ -29,8 +29,31 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
-// get conv includes two userId
+// is there a conv between 2 users
+router.get("/exists/:userId1/:userId2", async (req, res) => {
+  try {
+    const conversation = await Conversation.exists({
+      members: { $all: [req.params.userId1, req.params.userId2] },
+    });
+    
+    res.status(200).json(conversation);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
+// get conv by id
+router.get("/findbyId/:id", async (req, res) => {
+  try {
+    
+    const conversation = await Conversation.findById(req.params.id);
+    res.status(200).json(conversation);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get conv includes two userId
 router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
   try {
     const conversation = await Conversation.findOne({

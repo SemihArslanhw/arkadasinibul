@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./ConversationLeftBar.css"
+import { useContext } from 'react'
+import { AuthContext } from '../../../context/AuthContext'
+import { API } from '../../../context/BaseAxiosCall'
+import ConvLeftBarUser from './ConvLeftBarComponent/ConvLeftBarUser'
 
 function ConversationLeftBar() {
+  const { user } = useContext(AuthContext)
+  const [conversationDatas, setConversationDatas] = React.useState([])
+
+  useEffect(() => {
+    API.get('/conversations/'+user._id).then(res =>{
+      console.log(res.data)
+      setConversationDatas(res.data)
+    }
+    )
+  }, [])
   return (
     <div className='Left-Bar'>
-        Left Bar
+      {conversationDatas.map((data , i)=>{
+        return <ConvLeftBarUser key={i} currentUserId={user._id} conversation={data}/>
+      })}
         </div>
   )
 }

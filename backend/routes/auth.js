@@ -15,6 +15,12 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
+      address: req.body.address,
+      city: req.body.city,
+      district: req.body.district,
+      lat: req.body.lat,
+      lng: req.body.lng,
+      profilePicture: req.body.profilePicture,
     });
 
     //save user and respond

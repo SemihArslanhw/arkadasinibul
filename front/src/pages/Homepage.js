@@ -1,16 +1,26 @@
 
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import GoogleMaps from '../components/hompage/GoogleMap/GoogleMap'
 import HomeBodyFriends from '../components/hompage/HomeBodyFriends/HomeBodyFriends'
+import { AuthContext } from '../context/AuthContext'
+import { API } from '../context/BaseAxiosCall'
 import "./HomePage.css"
 
 function Homepage() {
+  const [usersData , setUsersData] = React.useState([]);
+  const {user} = useContext(AuthContext);
+  useEffect(() => {
+   API.get("/users/city/"+user.city).then(res => {
+     console.log(res.data)
+      setUsersData(res.data)
+    })
+  }, [])
   return (
     <div className='home-page'>
      
       <div className='home-body'>
-      <GoogleMaps/>
-      <HomeBodyFriends/>
+      <GoogleMaps userDatas={usersData}/>
+      <HomeBodyFriends usersDatas={usersData}/>
       </div>
     </div>
   )

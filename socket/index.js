@@ -5,11 +5,11 @@ const io = require('socket.io')(3002,{
     }
 });
 
-const users = []
+var users = []
 
 const addUser = (userId, socketId) => {
     !users.some((user) => user.userId === userId) &&
-      users.push({ userId, socketId });
+      users.push({ userId:userId, socketId:socketId });
   };
 
   const removeUser = (socketId) => {
@@ -21,17 +21,29 @@ const addUser = (userId, socketId) => {
   };
 
 io.on('connection', (socket) => {
-    console.log('a user connected ' + socket.id);
-    users.push(socket.id)
-    socket.on("message",(dat)=>{
-        console.log(dat)
-      io.emit("message",{message:dat , userId:socket.id})
-      
-    })
+    console.log('a user connected ');  
+    
+    
+    socket.on("addUser", (userId) => {
+      addUser(userId, socket.id);
+      io.emit("getUsers", users);
+    });
+    
+    
+    socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+      const user = getUser(receiverId);
+      console.log(text , senderId , receiverId)
+      io.to(user?.socketId).emit("getMessage", {
+        createdAt: new Date(),
+        senderId:senderId,
+        text:text,
+      });
+    });
 
     socket.on("disconnect", ()=>{
-        console.log("user disconnected")
-        delete users[socket.id]
+      console.log("a user disconnected!");
+      removeUser(socket.id);
+      io.emit("getUsers", users);
     })
 
 })

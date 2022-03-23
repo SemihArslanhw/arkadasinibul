@@ -14,9 +14,9 @@ function Header() {
            <h1 style={{cursor:"pointer"}} onClick={()=>navigate("/")}>Logo</h1>
         </div>
         <div className='headerRigth'>
-          <p>Profilim</p>
+          <p style={{cursor:"pointer"}} onClick={()=>navigate("/profil/" + user._id)}>Profilim</p>
           <p style={{cursor:"pointer"}} onClick={()=>navigate("/sohbet")}>Sohbet</p>
-          {user ? <p>{user.username}</p> : <p>Hesap Aç</p>}
+          {user ? <img className='header-profile-img' src={user.profilePicture}></img> : <p>Hesap Aç</p>}
           </div>
         </div>
   )

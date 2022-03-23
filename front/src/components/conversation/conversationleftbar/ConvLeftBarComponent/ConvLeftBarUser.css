@@ -1,0 +1,19 @@
+.conv-leftbar-card{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding-left: 10px;
+    color: white;
+    font-family: sans-serif;
+    flex-direction: row;
+    cursor: pointer;
+    align-items: center;
+}
+.conv-leftbar-card:hover{
+    background-color: rgb(110, 96, 96);
+}
+.conv-leftbar-card-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
