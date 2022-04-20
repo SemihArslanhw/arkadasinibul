@@ -12,6 +12,25 @@
     display: flex;
     background-color: #161b22;
 }
+.user-inf-side{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgb(59, 54, 54);
+}
+
+.post-button{
+    background-color: #0d1117;
+    padding: 10px;
+    border-radius: 5px;
+    color:white;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 .img-side>img{
     width:200px;

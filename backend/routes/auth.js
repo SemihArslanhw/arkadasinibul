@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 //REGISTER
 router.post("/register", async (req, res) => {
   try {
-    console.log(req.body);
     //generate new password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -40,7 +40,9 @@ router.post("/login", async (req, res) => {
     const validPassword = await bcrypt.compare(req.body.password, user.password)
     !validPassword && res.status(400).json("wrong password")
 
-    res.status(200).json(user)
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY , { expiresIn: "5d" });
+
+    res.status(200).json({result:user, token: token});
   } catch (err) {
     res.status(500)
   }

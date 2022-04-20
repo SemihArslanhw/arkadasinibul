@@ -11,7 +11,6 @@ function Homepage() {
   const {user} = useContext(AuthContext);
   useEffect(() => {
    API.get("/users/city/"+user.city).then(res => {
-     console.log(res.data)
       setUsersData(res.data)
     })
   }, [])

@@ -18,6 +18,17 @@
     color: whitesmoke;
     margin-bottom: 10px;
 }
+.body-progress{
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.conv-container{
+    width: 100%;
+    height: 100%;
+}
 
 .conv-top-user>img{
     border-radius: 100%;
@@ -47,6 +58,19 @@
 
 .conv-body-css{
     width: 100%;
+}
+
+.no-conversation{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #38423e;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .submit-form{

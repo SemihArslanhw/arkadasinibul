@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        user: state.user,
+        user: state.user?.result,
         isFetching: state.isFetching,
         error: state.error,
         dispatch,

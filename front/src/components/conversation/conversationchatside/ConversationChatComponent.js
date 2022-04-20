@@ -6,6 +6,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import { API } from '../../../context/BaseAxiosCall';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { CircularProgress } from "@material-ui/core";
 
 function ConversationChatComponent() {
     const chatRef = useRef();
@@ -18,14 +19,16 @@ function ConversationChatComponent() {
     const [conversations , setConversations] = useState([]);
     const [onlineUsers , setOnlineUsers] = useState([]);
     const [currentChat , setCurrentChat] = useState({});
+    const [loading , setLoading] = useState(true);
     
     let params = useParams();
 
     const { user } = useContext(AuthContext);
 
     useEffect(()=>{
-
+      setLoading(true);
       API.get("/conversations/findbyId/"+params.convId).then((res)=>{
+        
         setCurrentChat(res.data)
         const receiverId = res.data.members.find(
           (member) => member !== user._id
@@ -37,13 +40,14 @@ function ConversationChatComponent() {
         API.get("/messages/" + res?.data._id).then((ress)=>{
          console.log(ress.data)
          setMessages(ress.data)
+         setLoading(false);
          chatRef.current.lastElementChild.scrollIntoView();
         })
         
       })
       
              
-      chatRef.current.addEventListener("scroll",()=>{
+      chatRef.current?.addEventListener("scroll",()=>{
         const lastChild = chatRef.current.lastChild;
         if((chatRef.current.scrollHeight - chatRef.current.clientHeight - chatRef.current.scrollTop > Math.ceil(lastChild.clientHeight + 40))){
           setToBottom(true);
@@ -77,7 +81,7 @@ function ConversationChatComponent() {
           }
         }) 
         return ()=>{
-            socket.current.disconnect()
+            socket.current.disconnect();
         }
 
         },[params])
@@ -132,8 +136,9 @@ function ConversationChatComponent() {
 
   return (
     <div className='conv-side'> 
-       
-    <div className='conv-top'>
+       {params.convId ? 
+       <div className='conv-container'>
+         <div className='conv-top'>
      <div className='conv-top-user'>
       <img src={chattingUser.isProfilePictureSelfAdded ? "https://localhost:8080/images/İsmail_ismail@hotmail.com.jpg" : chattingUser.profilePicture}></img>
      </div>
@@ -142,21 +147,31 @@ function ConversationChatComponent() {
         
       </div>
       </div>
-    <div ref={chatRef} className='conv-body'>
-     {toBottom && <div onClick={()=>{toBottomm()}} className='to-bottom'><img src='tobottom.png'></img>{newMessageCount !== 0 && <p>{newMessageCount}</p>}</div>}
-    {messages.map((mes , i)=>{
-      return <div className='conv-body-css'> <MessageComponent user={user._id} key={i} data={mes} ></MessageComponent> </div>
-    })}
     
-      </div>
+      <div ref={chatRef} className='conv-body'>
+        {toBottom && <div onClick={()=>{toBottomm()}} className='to-bottom'><img src='tobottom.png'></img>{newMessageCount !== 0 && <p>{newMessageCount}</p>}</div>}
+      {loading ? <div className='body-progress'><CircularProgress size="5rem"/></div> :
+     
+    messages.map((mes , i)=>{
+      return <div key={i} className='conv-body-css'> <MessageComponent user={user._id} key={i} data={mes} ></MessageComponent> </div>
+    })
     
-   
-    <div className='conv-bottom'>
+  } </div>
+
+ <div className='conv-bottom'>
     <form className='submit-form' onSubmit={(e)=>handleMessageSend(e) }>
-<input  ref={mesajInput} className='form-input'  type="text" placeholder='Mesaj Yolla'></input>
-<button className='form-button' type='submit'><img style={{width:40}} src='send.png'></img></button>
-</form>
-      </div>
+    <input  ref={mesajInput} className='form-input'  type="text" placeholder='Mesaj Yolla'></input>
+    <button className='form-button' type='submit'><img style={{width:40}} src='send.png'></img></button>
+    </form>
+  </div>
+</div>
+       :
+       <div className='no-conversation'>
+         <img src='https://www.sbicard.com/creditcards/resources/img/digi-col-login.png'></img>
+          <h3>Konuşma Başlatmak için arkadaşlarınızın üstüne tıklayın</h3>
+       </div>
+         }
+    
 
 
 </div>

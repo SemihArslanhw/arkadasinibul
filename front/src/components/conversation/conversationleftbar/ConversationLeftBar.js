@@ -10,8 +10,8 @@ function ConversationLeftBar() {
   const [conversationDatas, setConversationDatas] = React.useState([])
 
   useEffect(() => {
+    console.log(user)
     API.get('/conversations/'+user._id).then(res =>{
-      console.log(res.data)
       setConversationDatas(res.data)
     }
     )

@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const Message = require("../models/Message");
+const verify = require("../verifytoken");
 
 //add
 
-router.post("/", async (req, res) => {
+router.post("/",verify, async (req, res) => {
   const newMessage = new Message(req.body);
-
+  
   try {
     const savedMessage = await newMessage.save();
     res.status(200).json(savedMessage);

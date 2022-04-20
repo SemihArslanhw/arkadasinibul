@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const Conversation = require("../models/Conversation");
+const verify = require("../verifytoken");
 
 //new conv
 
-router.post("/", async (req, res) => {
+router.post("/",verify, async (req, res) => {
   const newConversation = new Conversation({
     members: [req.body.senderId, req.body.receiverId],
   });
@@ -18,7 +19,7 @@ router.post("/", async (req, res) => {
 
 //get conv of a user
 
-router.get("/:userId", async (req, res) => {
+router.get("/:userId",verify, async (req, res) => {
   try {
     const conversation = await Conversation.find({
       members: { $in: [req.params.userId] },
@@ -30,7 +31,7 @@ router.get("/:userId", async (req, res) => {
 });
 
 // is there a conv between 2 users
-router.get("/exists/:userId1/:userId2", async (req, res) => {
+router.get("/exists/:userId1/:userId2",verify, async (req, res) => {
   try {
     const conversation = await Conversation.exists({
       members: { $all: [req.params.userId1, req.params.userId2] },
@@ -43,7 +44,7 @@ router.get("/exists/:userId1/:userId2", async (req, res) => {
 });
 
 // get conv by id
-router.get("/findbyId/:id", async (req, res) => {
+router.get("/findbyId/:id",verify, async (req, res) => {
   try {
     
     const conversation = await Conversation.findById(req.params.id);
@@ -54,7 +55,7 @@ router.get("/findbyId/:id", async (req, res) => {
 });
 
 // get conv includes two userId
-router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
+router.get("/find/:firstUserId/:secondUserId",verify, async (req, res) => {
   try {
     const conversation = await Conversation.findOne({
       members: { $all: [req.params.firstUserId, req.params.secondUserId] },

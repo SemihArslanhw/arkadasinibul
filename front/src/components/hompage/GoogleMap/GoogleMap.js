@@ -31,8 +31,8 @@ function GoogleMaps({userDatas}) {
   })
 
   const containerStyle = {
-    width: '50wh',
-    height: '600px'
+    width: '100vw',
+    height: '80vh',
   };
   
   
