@@ -1,13 +1,15 @@
 .createpost{
     z-index: 50;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.6);
-    margin-bottom: 90px;
+    top: 0;
+    opacity: 1;
+    transition:0.7s ;
 }
 
 .createpost-body{

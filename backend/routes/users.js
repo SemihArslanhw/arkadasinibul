@@ -109,8 +109,18 @@ router.put("/:id/follow", async (req, res) => {
   }
 });
 
-//unfollow a user
+//get all users
+router.get("/all", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+);
 
+//unfollow a user
 router.put("/:id/unfollow", async (req, res) => {
   if (req.body.userId !== req.params.id) {
     try {

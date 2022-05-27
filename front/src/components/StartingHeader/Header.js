@@ -12,7 +12,7 @@ function Header() {
   return (
     <div className='header'>
         <div className='headerLeft'>
-           <h1 style={{cursor:"pointer"}} onClick={()=>navigate("/")}>Logo</h1>
+           <h1 style={{cursor:"pointer"}} onClick={()=>navigate("/")}><img style={{width:"100px" , height:"50px"}} src='logoPho.png'></img></h1>
         </div>
         <div className='headerRigth'>
           

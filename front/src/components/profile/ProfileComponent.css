@@ -1,6 +1,6 @@
 .profile-comp{
     width: 100%;
-    height: 100%;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,8 +8,10 @@
 
 .profile{
     width: 80%;
-    height: 90%;
+    margin-top: 20px;
+    height: fit-content;
     display: flex;
+    flex-direction: column;
     background-color: #161b22;
 }
 .user-inf-side{
@@ -18,6 +20,27 @@
     display: flex;
     align-items: center;
     border-bottom: 2px solid rgb(59, 54, 54);
+}
+
+.user-post-side-img{
+    padding: 10px;
+}
+
+.user-post-side-img>img{
+    width:293px;
+    height: 293px;
+    cursor: pointer;
+}
+
+.user-posts-side{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .post-button{
@@ -47,6 +70,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 100px;
     height: 40%;
     gap: 20px;
 }

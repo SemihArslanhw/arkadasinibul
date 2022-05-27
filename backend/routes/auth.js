@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 //REGISTER
 router.post("/register", async (req, res) => {
+  console.log(req.body);
   try {
     //generate new password
     const salt = await bcrypt.genSalt(10);
@@ -39,6 +40,7 @@ router.post("/login", async (req, res) => {
 
     const validPassword = await bcrypt.compare(req.body.password, user.password)
     !validPassword && res.status(400).json("wrong password")
+   
 
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY , { expiresIn: "5d" });
 
