@@ -139,7 +139,7 @@ function RegisterMap({adress , setAdress , isAdressOpen , setIsAdressOpen , name
                         >
                            <div className='search-location'>
             <Autocomplete
-            apiKey='AIzaSyCzwQwF0jxTtfQnrUMWvQZqfgVNLwPSW54'
+            apiKey='<YOUR KEY>'
             style={{
               width: '80%',
               padding: '10px',
