@@ -14,7 +14,7 @@ function RegisterMap({adress , setAdress , isAdressOpen , setIsAdressOpen , name
     const [autocomplete , setAoutocomplete] = useState(null)
     const mapRef = useRef();
     
-    Geocode.setApiKey("AIzaSyA9MQjXLBeS7B6BaPz3zj0urSt2rt3uCXY");
+    Geocode.setApiKey("<YOUR KEY>");
     Geocode.enableDebug();
     useEffect(()=>{
     
